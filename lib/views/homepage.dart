@@ -45,12 +45,13 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             const RemainderWidget(),
-           const SizedBox(
-              height: 10,
+            const SizedBox(
+              height: 8,
             ),
             Expanded(
                 child: ListView.builder(
-              padding:const EdgeInsets.only(bottom: 10),
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.only(bottom: 10),
               itemBuilder: (ctx, count) {
                 DataObject obj = DataObject.fromMap(data[count]);
                 return ListItem(obj: obj);

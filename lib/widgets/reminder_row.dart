@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class RemainderRowWidget extends StatefulWidget {
@@ -37,7 +38,7 @@ class _RemainderRowWidgetState extends State<RemainderRowWidget> {
                       ),
               ],
             ),
-            Switch(
+            CupertinoSwitch(
               value: widget.checkvalue,
               onChanged: (bool val) {
                 setState(() {

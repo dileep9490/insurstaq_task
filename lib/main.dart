@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insurstaq_task/utils/sizeconfig.dart';
 import 'package:insurstaq_task/views/homepage.dart';
 
 void main() {

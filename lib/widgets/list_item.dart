@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:insurstaq_task/model/dataobject.dart';
+import 'package:insurstaq_task/utils/sizeconfig.dart';
 
 class ListItem extends StatelessWidget {
   ListItem({super.key, required this.obj});
@@ -19,15 +20,14 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenwidthblock = MediaQuery.of(context).size.width / 100;
-    final screenHeightblock = MediaQuery.of(context).size.height / 100;
+    SizeConfig().init(context);
     setColor(obj.category);
     return Padding(
       padding: const EdgeInsets.only(top: 20),
       child: Stack(
         children: [
           Container(
-            height: screenHeightblock * 18,
+            height: SizeConfig.heightUnitBlock! * 17,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
               color: Colors.white,
@@ -45,8 +45,8 @@ class ListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: SizeConfig.heightUnitBlock! * 6,
+                  width: SizeConfig.heightUnitBlock! * 6,
                   decoration: BoxDecoration(
                     color: Colors.black,
                     shape: BoxShape.circle,
@@ -68,8 +68,8 @@ class ListItem extends StatelessWidget {
                       height: 5,
                     ),
                     Flexible(
-                      child: Container(
-                        width: screenwidthblock * 70,
+                      child: SizedBox(
+                        width: SizeConfig.widthUnitBlock! * 70,
                         child: Text.rich(
                           TextSpan(
                             style: const TextStyle(fontSize: 15),
@@ -102,7 +102,7 @@ class ListItem extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: 8,
                     ),
                     obj.renewed
                         ? const SizedBox()
@@ -153,12 +153,17 @@ class ListItem extends StatelessWidget {
           Container(
             margin: const EdgeInsets.only(top: 10),
             alignment: Alignment.topRight,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
             child: Container(
               alignment: Alignment.topRight,
               padding: const EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(5),
+                  bottomLeft: Radius.circular(5),
+                ),
+                color: categorybg,
+              ),
               width: 80,
-              color: categorybg,
               child: Text(
                 obj.category,
                 style: const TextStyle(

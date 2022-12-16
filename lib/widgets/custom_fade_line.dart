@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class FadeLinePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    var paint = Paint();
+    var paint = Paint()
+    ..maskFilter = const MaskFilter.blur(
+      BlurStyle.inner,
+      1,
+    );
     paint.color = Colors.blueAccent;
-    paint.style = PaintingStyle.fill; 
+    paint.style = PaintingStyle.fill;
 
     var path = Path();
 
