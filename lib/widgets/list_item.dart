@@ -45,12 +45,13 @@ class ListItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: SizeConfig.heightUnitBlock! * 6,
-                  width: SizeConfig.heightUnitBlock! * 6,
                   decoration: BoxDecoration(
-                    color: Colors.black,
                     shape: BoxShape.circle,
                     border: Border.all(color: categorybg, width: 2),
+                  ),
+                  child: CircleAvatar(
+                    radius: SizeConfig.heightUnitBlock! * 2.5,
+                    backgroundColor: Colors.black,
                   ),
                 ),
                 const SizedBox(
